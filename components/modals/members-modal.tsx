@@ -71,24 +71,26 @@ export const MembersModal = () => {
             setLoadingId("")
         }
     }
-    const onKick = async (memberId: string, role: MemberRole) =>{
+    const onKick = async (memberId: string) => {
         try {
-            setLoadingId(memberId)
-            const url = qs.stringifyUrl({
-                url: `/api/members/${memberId}`,
-                query: {
-                    serverId: server?.id
-                }
-            });
-            const response = await axios.delete(url)
-            router.refresh()
-            onOpen("members", {server: response.data})
+          setLoadingId(memberId);
+          const url = qs.stringifyUrl({
+            url: `/api/members/${memberId}`,
+            query: {
+              serverId: server?.id,
+            },
+          });
+    
+          const response = await axios.delete(url);
+    
+          router.refresh();
+          onOpen("members", { server: response.data });
         } catch (err) {
-            console.log(err);
+          console.log(err);
         } finally {
-            setLoadingId("")
+          setLoadingId("");
         }
-    }
+      }
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
       <DialogContent className="bg-white text-black overflow-hidden">
@@ -143,7 +145,7 @@ export const MembersModal = () => {
                             </DropdownMenuPortal>
                         </DropdownMenuSub>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="text-rose-500">
+                        <DropdownMenuItem onClick={()=>onKick(m.id)} className="text-rose-500">
                             <Gavel className="h-4 w-4 mr-2"/>
                             Kick
                         </DropdownMenuItem>
