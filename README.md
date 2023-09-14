@@ -4,21 +4,9 @@ Author: JamesCicada
 
 This is a full-stack clone of Discord, a popular communication platform for gamers and communities. This project is built using Next.js, React, Prisma, TypeScript, and Shadcn to replicate the core features of Discord.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Development Server](#running-the-development-server)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Introduction
 
-Discord Full Stack Clone is a project created for both portfolio and educational purposes. It aims to provide a complete implementation of a Discord-like application, including features like real-time chat, voice chat, server management, user authentication, and more. By building this project, you can gain valuable experience in developing full-stack web applications with modern technologies.
+Discord Full Stack Clone is a private project created for my personal portfolio and educational purposes. It aims to provide a complete implementation of a Discord-like application, including features like real-time chat, voice chat, server management, user authentication, and more. By building this project, I aim to gain valuable experience in developing full-stack web applications with modern technologies.
 
 ## Features
 
@@ -26,8 +14,8 @@ Discord Full Stack Clone is a project created for both portfolio and educational
 - Real-time chat functionality for text messages.
 - Voice chat support for users to communicate via audio.
 - Server creation and management.
-- Direct messaging between users.
-- User profiles with avatars and status updates.
+- Video Channels.
+- User profiles with avatars.
 - Customization options for servers and profiles.
 
 ## Getting Started
