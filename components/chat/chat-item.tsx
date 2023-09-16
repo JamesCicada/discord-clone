@@ -62,6 +62,7 @@ export const ChatItem = ({
   socketQuery
 }: ChatItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const { onOpen } = useModal();
   const params = useParams();
   const router = useRouter();
@@ -102,10 +103,13 @@ export const ChatItem = ({
         query: socketQuery,
       });
 
+      setIsPending(true);
+
       await axios.patch(url, values);
 
       form.reset();
       setIsEditing(false);
+      setIsPending(false);
     } catch (error) {
       console.log(error);
     }
@@ -128,7 +132,12 @@ export const ChatItem = ({
   const isImage = !isPDF && fileUrl;
 
   return (
-    <div className="relative group flex items-center hover:bg-black/5 p-4 transition w-full">
+    <div className={
+      cn(
+        "relative group flex items-center hover:bg-black/5 p-4 transition w-full",
+        (isPending || isEditing) && "group opacity-60"
+      )
+    } >
       <div className="group flex gap-x-2 items-start w-full">
         <div onClick={onMemberClick} className="cursor-pointer hover:drop-shadow-md transition">
           <UserAvatar src={member.profile.imageUrl} />
